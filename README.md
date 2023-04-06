@@ -1,4 +1,4 @@
-# Web-App-ToDo-List-
+# Web-App-ToDo-List
 Create a web application for To-Do List using vanilla HTML, CSS and JS
 
 This is my first web app in a while. 
