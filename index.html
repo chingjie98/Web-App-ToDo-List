@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="title">
+        <h1>To Do List</h1>
+    </div>
+
+    <div class="content">
+        <ul id="lists">
+        </ul>
+    </div>
+    
+
+    <form onsubmit="return false">          <!-- need to put onsubmit return false, otherwise, whenever you click submit button, the page refresh-->
+        <input type="text" id="text_values" placeholder="What do you want to do">
+        <input type="submit" id="submit" value="submit">            <!-- can choose to use type = "button" also, then dunnid return false on top-->
+    </form>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
