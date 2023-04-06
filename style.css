@@ -19,4 +19,14 @@
     font-size: 40px;
 }
 
+li:hover{
+    background-color:antiquewhite;
+}
+
+span{
+    float: right;
+    padding-right: 5%;
+    text-align: center;
+}
+
 
