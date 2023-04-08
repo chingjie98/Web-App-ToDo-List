@@ -21,7 +21,7 @@ function func(){
 
         document.getElementsByTagName("ul")[0].appendChild(newElement);
 
-        var proc = "<li id= lists-item-" + counter.toString() + ">" + inputValue.value + "<span>delete</span><span>edit</span>" + "</li>";
+        var proc = inputValue.value + "<span>delete</span><span>edit</span>";
         document.getElementsByTagName("ul")[0].children[counter].innerHTML = proc;
 
         document.getElementById("text_values").value = "";
@@ -33,23 +33,28 @@ var ul = document.getElementsByTagName("ul")[0];
 
 ul.addEventListener("click", e => {
     if (e.target.tagName == "SPAN"){
-        const span = e.target;
-        const li = e.target.parentNode;
-        const ul = li.parentNode;
-        const ull = ul.parentNode;
+        const span = e.target;                      // <span>edit</span>
+        const li = e.target.parentNode;             // <li id = list-item-> ... </li>
+        const ul = li.parentNode;                   // <ul> ... </ul>
 
         if (e.target.textContent == "delete"){
-            ull.removeChild(ul);
+            ul.removeChild(li);
             counter -= 1;
         }
-    }    
+
+        else if (e.target.textContent == "edit"){
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = li.childNodes[0].nodeValue
+            ul.insertBefore(input, li); 
+            ul.removeChild(li);
+        }
+    }
+    
+    console.log(e);
     
 });
 
-
-document.addEventListener("click", e => {
-    console.log(e.target.parentNode);
-})
 
 
 
