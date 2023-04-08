@@ -24,9 +24,14 @@ li:hover{
 }
 
 span{
+    display: none;
     float: right;
     padding-right: 5%;
     text-align: center;
+}
+
+li:hover > span{
+    display: block;
 }
 
 
