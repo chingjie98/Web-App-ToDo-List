@@ -30,7 +30,7 @@ span{
     text-align: center;
 }
 
-li:hover > span{
+li:hover span{
     display: block;
 }
 

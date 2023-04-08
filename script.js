@@ -5,7 +5,6 @@ submitBtn.addEventListener("click", func);
 
 var counter = -1;
 
-
 function func(){
 
     let newElement = document.createElement("li");
@@ -20,20 +19,37 @@ function func(){
 
         counter += 1;
 
-        document.getElementById("lists").appendChild(newElement);
+        document.getElementsByTagName("ul")[0].appendChild(newElement);
 
-        var proc = "<li id= lists-item-" +  counter.toString()  +">" + inputValue.value + "<span>delete</span><span>edit</span>" + "</li>";
-        document.getElementById("lists").children[counter].innerHTML = proc;
+        var proc = "<li id= lists-item-" + counter.toString() + ">" + inputValue.value + "<span>delete</span><span>edit</span>" + "</li>";
+        document.getElementsByTagName("ul")[0].children[counter].innerHTML = proc;
 
         document.getElementById("text_values").value = "";
-
-        // document.getElementById("lists").removeChild()
-
-
     }
     
-
 }
+
+var ul = document.getElementsByTagName("ul")[0];
+
+ul.addEventListener("click", e => {
+    if (e.target.tagName == "SPAN"){
+        const span = e.target;
+        const li = e.target.parentNode;
+        const ul = li.parentNode;
+        const ull = ul.parentNode;
+
+        if (e.target.textContent == "delete"){
+            ull.removeChild(ul);
+            counter -= 1;
+        }
+    }    
+    
+});
+
+
+document.addEventListener("click", e => {
+    console.log(e.target.parentNode);
+})
 
 
 
