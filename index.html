@@ -4,27 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <header>
+
+    </header>
+
+    <main class="task-lists">
+        <h3>Task List</h3>
+
+        <div class="input-text">
+            <form onsubmit = "return false">
+                <input id= "text-input" type="text" placeholder="What do you want to do?">
+                <input id="submit-input" type="submit" value="submit">
+            </form>
+        </div>
+
+        <br>
+        
+        <div id="tasks">
+            
+            <!-- <div class="task">
+
+                <div class="task-content">
+                    <input type="text" value="eat" readonly>
+                </div>
+
+                <div class="buttons">
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+                
+            </div> -->
+
+        </div>
+
+    </main>
+
     
-    <div class="title">
-        <h1>To Do List</h1>
-    </div>
-
-    <div class="content">
-        <ul>
-        </ul>
-    </div>
-    
-
-    <form onsubmit="return false">          <!-- need to put onsubmit return false, otherwise, whenever you click submit button, the page refresh-->
-        <input type="text" id="text_values" placeholder="What do you want to do">
-        <input type="submit" id="submit" value="submit">            <!-- can choose to use type = "button" also, then dunnid return false on top-->
-    </form>
-
-
     <script src="script.js"></script>
 </body>
 </html>
