@@ -1,60 +1,58 @@
+const submit_btn = document.getElementById("submit-input");
 
-var submitBtn = document.getElementById("submit")
+submit_btn.addEventListener("click", e => {
 
-submitBtn.addEventListener("click", func);
+    const text_values = document.getElementById("text-input").value;
 
-var counter = -1;
-
-function func(){
-
-    let newElement = document.createElement("li");
-
-    inputValue = document.getElementById("text_values") 
-
-    if (inputValue.value == null || inputValue.value == ''){
+    if (!text_values){
         return 0;
     }
 
     else{
+        const new_task = document.createElement("div"); 
+        new_task.className = "task";
 
-        counter += 1;
+        const new_task_content = document.createElement("div");
+        new_task_content.className = "task-content";
+        const new_text_content_text = document.createElement("input");
+        // new_text_content_text.value = text_values;
+        new_text_content_text.setAttribute("value", text_values);
+        new_text_content_text.setAttribute("readonly", "readonly");
 
-        document.getElementsByTagName("ul")[0].appendChild(newElement);
+        new_task_content.appendChild(new_text_content_text);
 
-        var proc = inputValue.value + "<span>delete</span><span>edit</span>";
-        document.getElementsByTagName("ul")[0].children[counter].innerHTML = proc;
+        const new_task_buttons = document.createElement("div");
+        new_task_buttons.className = "buttons";
+        const new_task_buttons_edit = document.createElement("button")
+        new_task_buttons_edit.textContent = "Edit"
+        const new_task_buttons_delete = document.createElement("button")
+        new_task_buttons_delete.textContent = "Delete"
 
-        document.getElementById("text_values").value = "";
+        new_task_buttons.appendChild(new_task_buttons_edit)
+        new_task_buttons.appendChild(new_task_buttons_delete)
+
+        new_task.appendChild(new_task_content)
+        new_task.appendChild(new_task_buttons)
+
+        document.getElementById("tasks").appendChild(new_task)
+
+        document.getElementById("text-input").value = ""
+
+        new_task_buttons_edit.addEventListener("click", e => {
+            if (new_task_buttons_edit.textContent == "Edit"){
+                new_text_content_text.removeAttribute("readonly");
+                new_text_content_text.focus();
+                new_task_buttons_edit.textContent = "Save"; 
+            } else{
+                new_text_content_text.setAttribute("readonly","readonly");
+                new_task_buttons_edit.textContent = "Edit";
+            }
+        })
+
+        new_task_buttons_delete.addEventListener("click", e => {
+            document.getElementById("tasks").removeChild(new_task);
+        })
+
     }
     
-}
-
-var ul = document.getElementsByTagName("ul")[0];
-
-ul.addEventListener("click", e => {
-    if (e.target.tagName == "SPAN"){
-        const span = e.target;                      // <span>edit</span>
-        const li = e.target.parentNode;             // <li id = list-item-> ... </li>
-        const ul = li.parentNode;                   // <ul> ... </ul>
-
-        if (e.target.textContent == "delete"){
-            ul.removeChild(li);
-            counter -= 1;
-        }
-
-        else if (e.target.textContent == "edit"){
-            const input = document.createElement("input");
-            input.type = "text";
-            input.value = li.childNodes[0].nodeValue
-            ul.insertBefore(input, li); 
-            ul.removeChild(li);
-        }
-    }
-    
-    console.log(e);
-    
-});
-
-
-
-
+})
