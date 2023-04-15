@@ -1,4 +1,26 @@
 
-.h3{
-    font-size:200px;
+.task-lists{
+    border: 10px solid;
+    margin:auto;
+    text-align: center;
+}
+
+
+.task{
+    display: flex;
+    justify-content: center;
+}
+
+.task-content{
+    margin-bottom: 0.5%;
+    margin-right: 0.5%;
+}
+
+#text-input{
+    width: 40%;
+    line-height: 2.5em;
+}
+
+#submit-input{
+    height: 2.9em;
 }
