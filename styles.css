@@ -5,22 +5,29 @@
     text-align: center;
 }
 
-
-.task{
-    display: flex;
-    justify-content: center;
-}
-
-.task-content{
-    margin-bottom: 0.5%;
-    margin-right: 0.5%;
-}
-
 #text-input{
     width: 40%;
     line-height: 2.5em;
+    background-color: cyan;
 }
 
 #submit-input{
     height: 2.9em;
 }
+
+
+.task{
+    display: flex;
+    max-width: 42.75%;
+    border: 2px solid red;
+    margin: 0 auto;
+}
+
+/* .task-content{
+    flex-basis: 100%;
+} */
+
+.task-content input{
+    flex-basis: 100%;
+}
+
